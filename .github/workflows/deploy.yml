@@ -1,4 +1,4 @@
-name: "Deploy in Github Pages"
+name: "Deploy Workflow"
 
 on:
   push:
