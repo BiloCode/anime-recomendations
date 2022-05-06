@@ -1,0 +1,23 @@
+name: "Deploy in Github Pages"
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: "Get Repository"
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: "Install Node"
+        uses: actions/setup-node@v2
+        with:
+          version: "16"
+      - name: "Install Dependencies"
+        run: npm install
+      - name: "Building App"
+        run: npm run build
