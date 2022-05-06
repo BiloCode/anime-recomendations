@@ -13,7 +13,7 @@ jobs:
       - name: "Node Setup"
         uses: actions/setup-node@v3
       - name: "Typescript Setup"
-        uses: icrawl/action-tsc@v1
+        run: npm i -g tsc
       - name: "Build Generation"
         run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
