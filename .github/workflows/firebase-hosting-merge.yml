@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting on merge
+name: Deploy to Firebase Hosting
 
 "on":
   push:
@@ -8,8 +8,12 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Node Setup"
+        uses: actions/setup-node@v3
+      - name: "Typescript Setup"
+        uses: icrawl/action-tsc@v1
       - name: "Build Generation"
         run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
